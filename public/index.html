@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>K-pop Quiz Game</title>
+            <link rel="stylesheet" href="styles.css">
+            <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        </head>
+
+
+    <body>
+        <!-- This is the Title shown on the top of the website -->
+        <header class="header">
+            <h1 class="title">K-pop Quiz Game</h1>
+        </header>
+
+        <!-- This contains the main content of the website -->
+        <main id="main" class="main">
+
+            <!-- This section shows the buttons which group and the amount of questions to quiz on -->
+            <section id="menu" class="menu state active">
+                <h1>Select a group you want to test your knowledge on:</h1>
+
+                <!-- This allows you to pick what group you want to play or all groups -->
+                <div class="group-options">
+                    <button class="group" data-group="Illit">ILLIT</button>
+                    <button class="group" data-group="Unis">UNIS</button>
+                    <button class="group" data-group="Ahof">AHOF</button>
+                    <button class="group" data-group="all">All GROUPS</button>
+                </div>
+
+                <h1>Choose number of questions:</h1>
+
+                <!-- This allows you to pick the amount of questions you want or all the questions -->
+                <div class="question-count-options">
+                    <button data-count="5" class="selected">5</button>
+                    <button data-count="10" >10</button>
+                    <button data-count="15">15</button>
+                    <button data-count="all">All</button>
+                </div>
+            </section>
+
+            <!-- This section shows the buttons which difficulty you want to play -->
+            <section id="difficulty" class="difficulty state">
+                <h1 id="selectedgroup"></h1>
+                <p>Select difficulty</p>
+
+                <!-- This allows you to pick what difficulties you want or just random -->
+                <div class="difficulty-options">
+                    <button data-level="easy">Easy 🟢</button>
+                    <button data-level="medium">Medium 🟡</button>
+                    <button data-level="hard">Hard 🔴</button>
+                    <button data-level="all">All</button>
+                </div>
+
+                <!-- This allows you to go back to the start and pick a different group or amount of questions -->
+                <button class="back">⬅ Back</button>
+            </section>
+
+            <!-- This section shows the actual quiz  -->
+            <section id="quiz" class="quiz state">
+                <!-- This shows the score, timer and amount of questions you are on at the moment -->
+                <div class="quiz-header">
+                    <p id="score">Score: 0</p>
+                    <p id="timer">00:00</p>
+                    <p id="questionCount">0/0</p>
+                </div>
+
+                <!-- This shows the actual question itself along with an image if there is and the choices -->
+                <div class="items">
+                    <p id="questiontext"></p>
+                    <img id="questionimage" />
+                    <div id="choices"></div>
+                </div>
+
+                <!-- This allows you to either skip a question or quit the quiz at anytime -->
+                <div class="quiz-buttons">
+                    <button id="skip">Skip</button>
+                    <button id="quit">Quit</button>
+                </div>
+            </section>
+
+            <!-- This section shows the result screen with final score and total time it took to complete -->
+            <section id="result" class="state">
+                <img id="resultimage" />
+                <p id="resulttext"></p>
+                <h1>Quiz Finished </h1>
+                <p id="finalscore"></p>
+                <p id="totaltime"></p>
+
+                <!-- This allows you to play again the quiz  -->
+                <button id="playAgain">Play Again</button>
+            </section>
+        </main>
+
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,266 @@
+/* Importing the Main two fonts */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Animation for different states */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Contains the Main colors and fonts */
+:root {
+    --heading-font: 'Tinos', sans-serif;
+    --body-font: 'PT Sans', sans-serif;
+    --text-color: #f52571;
+    --bg-color: radial-gradient(circle at center, #333333, #1b1b3a);
+    --button-bg: linear-gradient(135deg, #6c63ff, #9f8cff);
+    --card-bg: #1b1b3a;
+}
+
+/* Reset the website to default spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Colors the background, Adjusts the font, and layout  */
+body {
+    font-family: var(--body-font);
+    background: var(--bg-color);
+    min-height: 100vh;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Default styling for h1 */
+h1 {
+    font-size: 2em;
+    font-family: var(--heading-font);
+    text-shadow:
+        0 0 60px #000000,
+        0 0 30px #ff79c6,
+        0 0 15px #c70080;
+    margin: 5px;
+}
+
+/* Default styling for p */
+p {
+    font-size: 1em;
+    text-shadow:
+        0 0 60px #000000,
+        0 0 30px #ff79c6,
+        0 0 15px #c70080;
+    margin: 10px;
+}
+
+/* Default styling for buttons */
+button {
+    background: var(--button-bg);
+    color: var(--text-color);
+    padding: 15px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 6px 6px 0 rgba(108,99,255,0.3);
+    transition: transform 0.3s ease, box-shadow 0.2s;
+}
+
+/* Styles the buttons on hover to increase in size and add glow effect */
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(159,140,255,0.7);
+}
+
+/* === Header === */
+
+/* Styles the class header to take full width, aligns text to center and gives spacing */
+.header {
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+/* === Main Content === */
+
+/* Styles the class main to take partial width, aligns text to center and adjusts layout */
+.main {
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+}
+
+/* Styles the class state to not display and have an animation when displayed  */
+.state {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Styles the class state to show */
+.state.active {
+    display: block;
+}
+
+/* Styles the group and difficulty options to be a grid and gives spacing */
+.group-options, .difficulty-options {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Styles the class question-count-options to flex, takes full width and spacing */
+.question-count-options {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+/* Styles the buttons inside the class question-count-options to have a fixed width and spacing */
+.question-count-options button {
+    width: 150px;   
+    margin: 0 10px;
+}
+
+/* Styles the selected button inside the class question-count-options to have different background and glow effect */
+.question-count-options button.selected {
+    background: linear-gradient(135deg, #ff4fd8, #9f8cff);
+    box-shadow: 0 0 25px rgba(255, 79, 216, 0.7);
+    transform: scale(1.1);
+}
+
+/* Styles the class items to have a background and spacing */
+.items {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.08);
+}
+
+/* Styles the Image to have a max-width and spacing */
+#questionimage {
+    max-width: 220px;
+    border-radius: 50%;
+    margin: 15px auto;
+    display: none;
+}
+
+/* Styles the choices to be on a grid and gives spacing */
+#choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Styles the choices button to show green if correct */
+.choices.correct {
+    background: #20b55e;
+}
+
+/* Styles the choices button to show red if wrong */
+.choices.wrong {
+    background: #db2d1a;
+}
+
+/* Styles the class quiz-header and quiz-buttons to give spacing */
+.quiz-header, .quiz-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+/* Styles the back button to have transparent background and white border */
+.back {
+    background: transparent;
+    margin-top: 30px;
+    border: 1px solid white;
+}
+
+/* Styles the back button on hover to have slight dark background */
+.back:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Styles the h2 and p in result to give spacing and font */
+#result h1, #result p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+#resultimage {
+    max-width: 300px;
+    border-radius: 15px;
+    margin: 15px auto;
+    display: block;
+}
+
+/* === MEDIA QUERY FOR DESKTOP === */
+@media (min-width: 1024px) {
+    
+    /* Adjusts the font size for h1 and spacing */
+    h1 {
+        font-size: 3em;
+        margin: 10px;
+    }
+
+    /* Adjusts the font size for p and spacing */
+    p {
+        font-size: 1.5em;
+        margin: 15px;
+    }
+
+    /* Adjusts the font size and padding for buttons */
+    button {
+        font-size: 1.5em;
+        padding: 20px;
+    }
+
+    /* Adjusts the max-width for header */
+    .header {
+        max-width: 500px;
+    }
+
+    /* Adjusts the max-width for main */
+    .main {
+        width: 100%;
+        max-width: 800px;
+    }
+
+    /* Adjusts the group and difficulty options to have two columns and more spacing */
+    .group-options, .difficulty-options {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+    }
+
+    /* Adjusts the question count options button width and spacing */
+    .items {
+        padding: 50px;
+        border-radius: 30px;
+    }
+
+    /* Styles the Image to have a larger max-width */
+    #questionimage {
+        max-width: 400px;
+    }
+
+    /* Styles the choices to have three columns and more spacing */
+    #choices {
+        gap: 50px;
+    }
+
+    /* Styles the h2 and p in result to give larger font */
+    #result h1, #result p {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+}
