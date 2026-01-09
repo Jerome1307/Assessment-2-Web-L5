@@ -166,7 +166,7 @@ button:hover {
 /* Styles the choices to be on a grid and gives spacing */
 #choices {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 20px;
 }
 
