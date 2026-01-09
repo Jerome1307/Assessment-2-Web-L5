@@ -263,6 +263,7 @@ button:hover {
 
     /* Styles the choices to have three columns and more spacing */
     #choices {
+        grid-template-columns: 1fr 1fr;
         gap: 50px;
     }
 
