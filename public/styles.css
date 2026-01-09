@@ -155,6 +155,14 @@ button:hover {
     display: none;
 }
 
+/* Styles the Audio to have a max-width and spacing */
+#questionsong {
+    display: none;
+    margin: 15px auto;
+    width: 100%;
+    max-width: 280px;
+}
+
 /* Styles the choices to be on a grid and gives spacing */
 #choices {
     display: grid;
@@ -242,7 +250,7 @@ button:hover {
         gap: 50px;
     }
 
-    /* Adjusts the question count options button width and spacing */
+    /* Styles the class items to increase spacing */
     .items {
         padding: 50px;
         border-radius: 30px;

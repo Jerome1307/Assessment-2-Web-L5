@@ -132,13 +132,27 @@ function showQuestion() {
     document.getElementById('questionCount').textContent =
         `${currentIndex + 1}/${questions.length}`;
 
-    // Updates the question image if available
+    // Handles displaying image or audio if available
     const img = document.getElementById('questionimage');
-    if (q.image) {
+    const song = document.getElementById('questionsong');
+
+    // Resets image and audio display
+    img.style.display = 'none';
+
+    song.pause();
+    song.currentTime = 0;
+    song.removeAttribute('src');
+    song.style.display = 'none';
+
+    // Checks if the source is an image or audio and updates accordingly
+    if (q.image && q.image.endsWith('.mp3')) {
+        song.src = q.image;
+        song.load();
+        song.style.display = 'block';
+    }
+    else if (q.image) {
         img.src = q.image;
         img.style.display = 'block';
-    } else {
-        img.style.display = 'none';
     }
 
     // Displays the choices as buttons
@@ -164,7 +178,8 @@ function checkAnswer(button, correct) {
     if (correct) {
         button.classList.add('correct');
         score++;
-    } else {
+    } 
+    else {
         button.classList.add('wrong');
     }
 
